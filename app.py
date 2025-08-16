@@ -4,7 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import init_db, get_db, query_db
 from debt_utils import snowball_strategy, avalanche_strategy
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates", static_folder="static")
+
 app.secret_key = "your_secret_key"
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
