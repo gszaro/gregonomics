@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Debt Payoff Simulation</h2>
+<canvas id="snowballChart" width="400" height="200"></canvas>
+<canvas id="avalancheChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const snowballData = {{ snowball|tojson }};
+    const avalancheData = {{ avalanche|tojson }};
+
+    // Extract months and balances
+    const snowballMonths = snowballData.map(d => d.month);
+    const snowballBalances = snowballData.map(d => d.debts.reduce((a,b) => a+b, 0));
+
+    const avalancheMonths = avalancheData.map(d => d.month);
+    const avalancheBalances = avalancheData.map(d => d.debts.reduce((a,b) => a+b, 0));
+
+    // Snowball Chart
+    new Chart(document.getElementById('snowballChart'), {
+        type: 'line',
+        data: {
+            labels: snowballMonths,
+            datasets: [{
+                label: 'Snowball Balance',
+                data: snowballBalances,
+                borderColor: 'blue',
+                fill: false
+            }]
+        }
+    });
+
+    // Avalanche Chart
+    new Chart(document.getElementById('avalancheChart'), {
+        type: 'line',
+        data: {
+            labels: avalancheMonths,
+            datasets: [{
+                label: 'Avalanche Balance',
+                data: avalancheBalances,
+                borderColor: 'red',
+                fill: false
+            }]
+        }
+    });
+</script>
+{% endblock %}

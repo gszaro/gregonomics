@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS debts;
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    hash TEXT NOT NULL
+);
+
+CREATE TABLE transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT NOT NULL,
+    note TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+CREATE TABLE debts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    balance REAL NOT NULL,
+    interest REAL NOT NULL,
+    minimum REAL NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);

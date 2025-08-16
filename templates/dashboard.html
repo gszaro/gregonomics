@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-3">Dashboard</h2>
+
+<div class="mb-3">
+    <a href="{{ url_for('add_transaction') }}" class="btn btn-primary">Add Transaction</a>
+    <a href="{{ url_for('debts') }}" class="btn btn-secondary">Add Debt</a>
+    <a href="{{ url_for('simulate') }}" class="btn btn-success">Run Payoff Simulation</a>
+    <a href="{{ url_for('simulate') }}" class="btn btn-success mb-2">Run Debt Payoff Simulation</a>
+
+</div>
+
+<h3>Transactions</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Note</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transactions %}
+        <tr>
+            <td>${{ t[2] }}</td>
+            <td>{{ t[3] }}</td>
+            <td>{{ t[4] }}</td>
+            <td>{{ t[5] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3 class="mt-4">Debts</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Balance</th>
+            <th>Interest Rate (%)</th>
+            <th>Minimum Payment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in debts %}
+        <tr>
+            <td>${{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>${{ d[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
