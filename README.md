@@ -1,6 +1,6 @@
 ############################################################
 
-# ClearPay
+# Gregonomics
 
 # A Personal Finance & Debt Manager with Simulations
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-ClearPay is a full-stack web application that helps users take control of their financial journey. It provides tools to:
+Gregonomics is a full-stack web application that helps users take control of their financial journey. It provides tools to:
 
 - Track day-to-day transactions
 - Manage debts with balances, interest rates, and minimum payments
@@ -63,8 +63,8 @@ This project was built as a capstone to CS50, but engineered to showcase product
 
 Clone the repository
 
-git clone https://github.com/YOUR_USERNAME/clearpay.git
-cd clearpay
+git clone https://github.com/YOUR_USERNAME/gregonomics.git
+cd gregonomics
 
 Create and activate a virtual environment
 
@@ -114,7 +114,7 @@ View the dashboard to monitor financial health at a glance
 Why This Project Matters
 ############################################################
 
-ClearPay demonstrates:
+Gregonomics demonstrates:
 
 Full-stack engineering with database, backend, and frontend integration
 
@@ -124,7 +124,7 @@ Production-quality practices such as modular code, reusable templates, and Boots
 
 Strong portfolio showcase: a practical tool with immediate real-world value
 
-Clearpay is a personal finance companion that could scale into a deployable product.
+Gregonomics is a personal finance companion that could scale into a deployable product.
 
 ############################################################
 
