@@ -4,6 +4,8 @@ A Personal Finance & Debt Manager with Simulations
 
 🌐 Live Demo
 
+#### Video Demo: <https://youtu.be/2aYQupSokN0)>
+
 👉 Gregonomics on Render
 (Click to try it live in your browser — no setup needed.)
 https://gregonomics.onrender.com/
