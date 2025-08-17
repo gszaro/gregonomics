@@ -2,14 +2,16 @@
 {% block content %}
 <h2 class="mb-3">Dashboard</h2>
 
+<!-- Quick actions: Add transaction, debt, or run simulations -->
 <div class="mb-3">
     <a href="{{ url_for('add_transaction') }}" class="btn btn-primary">Add Transaction</a>
     <a href="{{ url_for('debts') }}" class="btn btn-secondary">Add Debt</a>
     <a href="{{ url_for('simulate') }}" class="btn btn-success">Run Payoff Simulation</a>
+    <!-- This second button is a duplicate of the above, could be cleaned up -->
     <a href="{{ url_for('simulate') }}" class="btn btn-success mb-2">Run Debt Payoff Simulation</a>
-
 </div>
 
+<!-- Transactions table -->
 <h3>Transactions</h3>
 <table class="table table-striped table-bordered">
     <thead>
@@ -21,17 +23,19 @@
         </tr>
     </thead>
     <tbody>
+        <!-- Loop through each transaction tuple (indexes based on DB schema) -->
         {% for t in transactions %}
         <tr>
-            <td>${{ t[2] }}</td>
-            <td>{{ t[3] }}</td>
-            <td>{{ t[4] }}</td>
-            <td>{{ t[5] }}</td>
+            <td>${{ t[2] }}</td> <!-- amount -->
+            <td>{{ t[3] }}</td>   <!-- category -->
+            <td>{{ t[4] }}</td>   <!-- note -->
+            <td>{{ t[5] }}</td>   <!-- timestamp -->
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
+<!-- Debts table -->
 <h3 class="mt-4">Debts</h3>
 <table class="table table-striped table-bordered">
     <thead>
@@ -44,9 +48,9 @@
     <tbody>
         {% for d in debts %}
         <tr>
-            <td>${{ d[2] }}</td>
-            <td>{{ d[3] }}</td>
-            <td>${{ d[4] }}</td>
+            <td>${{ d[2] }}</td> <!-- balance -->
+            <td>{{ d[3] }}</td>   <!-- interest -->
+            <td>${{ d[4] }}</td> <!-- minimum -->
         </tr>
         {% endfor %}
     </tbody>

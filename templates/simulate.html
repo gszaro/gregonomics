@@ -1,22 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
 <h2>Debt Payoff Simulation</h2>
+
+<!-- Two charts side by side: Snowball and Avalanche -->
 <canvas id="snowballChart" width="400" height="200"></canvas>
 <canvas id="avalancheChart" width="400" height="200"></canvas>
 
+<!-- Chart.js library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // Bring in the snowball and avalanche histories from Flask
     const snowballData = {{ snowball|tojson }};
     const avalancheData = {{ avalanche|tojson }};
 
-    // Extract months and balances
+    // Extract months (x-axis) and total balances (y-axis)
     const snowballMonths = snowballData.map(d => d.month);
     const snowballBalances = snowballData.map(d => d.debts.reduce((a,b) => a+b, 0));
 
     const avalancheMonths = avalancheData.map(d => d.month);
     const avalancheBalances = avalancheData.map(d => d.debts.reduce((a,b) => a+b, 0));
 
-    // Snowball Chart
+    // Draw Snowball payoff chart
     new Chart(document.getElementById('snowballChart'), {
         type: 'line',
         data: {
@@ -30,7 +34,7 @@
         }
     });
 
-    // Avalanche Chart
+    // Draw Avalanche payoff chart
     new Chart(document.getElementById('avalancheChart'), {
         type: 'line',
         data: {

@@ -1,10 +1,115 @@
+/* General page styling */
 body {
-  background-color: #ffffff;
-  color: #212529;
-  font-family: Arial, sans-serif;
+  background-color: #f9fafc; 
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6; 
 }
 
-h2, h3 {
+/* Headings */
+h1, h2, h3 {
   margin-top: 20px;
   margin-bottom: 10px;
+  font-weight: 600; 
+  color: #1d3557; 
+}
+
+/* Navbar tweaks */
+.navbar {
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* subtle shadow to give nav some depth */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #1d3557 !important; /* brand color */
+}
+
+.navbar-nav .nav-link {
+  color: #457b9d !important; /* softer blue links */
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e63946 !important; /* highlight in red on hover */
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #457b9d;
+  border-color: #457b9d;
+}
+
+.btn-primary:hover {
+  background-color: #1d3557;
+  border-color: #1d3557;
+}
+
+.btn-success {
+  background-color: #2a9d8f;
+  border-color: #2a9d8f;
+}
+
+.btn-success:hover {
+  background-color: #21867a;
+  border-color: #21867a;
+}
+
+.btn-secondary {
+  background-color: #4a88c6;
+  border-color: #4a88c6;
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/* Tables */
+.table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* gives a card feel */
+}
+
+.table th {
+  background-color: #457b9d;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+/* Flash messages */
+.alert-info {
+  background-color: #e9f5ff;
+  color: #1d3557;
+  border: 1px solid #b5d9f5;
+  border-radius: 4px;
+}
+
+/* Form containers */
+.form-control {
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+form button {
+  margin-top: 10px;
+  width: 100%; /* full-width buttons for cleaner mobile look */
+}
+
+/* Centering helpers */
+.text-center {
+  text-align: center;
+}
+
+/* Chart canvas styling */
+canvas {
+  margin: 20px 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
 }
